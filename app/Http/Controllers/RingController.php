@@ -29,17 +29,20 @@ class RingController extends Controller
 //   Aquí es donde almaceno el ring y lo almaceno en la DB
     public function store(Request $request)
     {
-//        validar mensaje
+        $this->validateRequest($request);
 
-        $this->validate($request, [
-        'mensaje' => ['required', 'min:3', 'max:300']
-    ]);
-
-        Ring::create([
-            'mensaje' => $request->get('mensaje'),
-            'user_id' => auth()->id(),
+        auth()->user()->rings()->create([
+            'mensaje' => $request->get('mensaje')
         ]);
+
         return redirect()->route('rings.index')->with('status', 'Ring created successfully');
+    }
+
+    private function validateRequest(Request $request)
+    {
+        $this->validate($request, [
+            'mensaje' => ['required', 'min:3', 'max:300']
+        ]);
     }
 
     /**

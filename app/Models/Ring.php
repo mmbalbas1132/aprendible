@@ -11,6 +11,6 @@ class Ring extends Model
 
     protected $fillable = [
         'mensaje',
-        'user_id',
+
     ];
 }
