@@ -29,6 +29,7 @@ class RingController extends Controller
 //   Aquí es donde almaceno el ring y lo almaceno en la DB
     public function store(Request $request)
     {
+        //validar mensaje
         $this->validateRequest($request);
 
         auth()->user()->rings()->create([
