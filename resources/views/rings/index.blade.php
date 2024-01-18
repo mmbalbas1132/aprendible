@@ -14,7 +14,7 @@
 
                     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight mb-4">Ring de {{ auth()->user()->name }}</h2>
 
-                    <form action="" method="POST">
+                    <form action="{{route('rings.store')}}" method="POST">
                         @csrf
                         <textarea name="mensaje" id="mensaje" class="block w-full rounded-md mb-5 " placeholder="Intruduce tu  &quot;ring &quot;"></textarea>
                         <x-primary-button class="mt-4">{{__('Ring')}}</x-primary-button>

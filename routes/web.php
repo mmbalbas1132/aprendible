@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Ring;
+use App\Http\Controllers\RingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,21 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::view('/rings', 'rings.index')->name('rings.index');
+    Route::get('/rings',  [RingController::class, 'index'])->name('rings.index');
+    Route::post('/rings', [RingController::class, 'store'])->name('rings.store');
 
-    Route::post('/rings', function () {
-        // Insertar en la DB
-        Ring::create([
-            'mensaje' => request('mensaje'),
-            'user_id' => auth()->id(),
-
-    ]);
-
-        return redirect()->route('rings.index')->with('status', 'Ring created successfully');
-    });
-
-
-    });
+});
 
 
 //    rings.index es la forma de blade de escribir la ruta (rings/index) Laravel ya detecta que está en la ruta resources/views

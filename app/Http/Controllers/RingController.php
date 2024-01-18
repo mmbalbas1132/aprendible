@@ -12,7 +12,7 @@ class RingController extends Controller
      */
     public function index()
     {
-        //
+        return view('rings.index');
     }
 
     /**
@@ -26,9 +26,14 @@ class RingController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+//   Aquí es donde almaceno el ring y lo almaceno en la DB
     public function store(Request $request)
     {
-        //
+        Ring::create([
+            'mensaje' => $request->get('mensaje'),
+            'user_id' => auth()->id(),
+        ]);
+        return redirect()->route('rings.index')->with('status', 'Ring created successfully');
     }
 
     /**
