@@ -29,6 +29,12 @@ class RingController extends Controller
 //   Aquí es donde almaceno el ring y lo almaceno en la DB
     public function store(Request $request)
     {
+//        validar mensaje
+
+        $this->validate($request, [
+        'mensaje' => ['required', 'min:3', 'max:300']
+    ]);
+
         Ring::create([
             'mensaje' => $request->get('mensaje'),
             'user_id' => auth()->id(),
