@@ -60,8 +60,10 @@
                                 </x-slot>
                                 <x-slot name="content">
                                     <x-dropdown-link :href="route('rings.edit', $ring)">
-                                        {{ __('Edit Ring') }}
+                                       {{ __('Edit Ring') }}
+
                                     </x-dropdown-link>
+
                                     <form method="POST" action="{{ route('rings.destroy', $ring) }}">
                                         @csrf @method('DELETE')
                                         <x-dropdown-link :href="route('rings.destroy', $ring)" onclick="event.preventDefault(); this.closest('form').submit();">
