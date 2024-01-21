@@ -4,6 +4,11 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RingController;
 
+DB::listen(function ($query){
+
+    dump($query->sql);
+});
+
 Route::get('/', function () {
     return view('welcome');
 });

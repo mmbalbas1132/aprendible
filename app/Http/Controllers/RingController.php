@@ -17,7 +17,7 @@ class RingController extends Controller
     {
         return view('rings.index', [
 //            'rings' => Ring::orderBy('created_at', 'desc')->get()
-            'rings' => Ring::latest()->get()
+            'rings' => Ring::with('user')->latest()->get()
 
         ]);
     }
