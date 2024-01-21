@@ -15,10 +15,10 @@
                     {{--                        @dump($errors->get('mensaje'))--}}
                     {{--                    Captura los mensajes de error del campo mensaje. También podría escribir all() y capturaría los mensajes de todos los campos de haber más.--}}
 
-                    <form action="{{route('')}}" method="POST">
-                        @csrf
-                        <textarea name="mensaje" id="mensaje" class="block w-full rounded-md mb-5 " placeholder="Intruduce tu  &quot;ring &quot;">{{old('mensaje', $mensaje)}}</textarea>
-                        <x-input-error :messages="$errors->get('mensaje')"/>
+                    <form method="POST" action="{{ route('rings.update', $ring) }}">
+                        @csrf @method('PUT')
+                        <textarea name="mensaje" id="mensaje" class="block w-full rounded-md mb-5 " placeholder="Intruduce tu  &quot;ring &quot;">{{old('mensaje', $ring->mensaje)}}</textarea>
+                        <x-input-error :messages="$errors->get('message')"/>
                         {{--                       <span class="text-lg text-red-600">@error('mensaje'){{$message}}  @enderror</span><br>--}}
                         <x-primary-button class="mt-4">{{__('Ring')}}</x-primary-button>
 

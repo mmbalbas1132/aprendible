@@ -32,7 +32,9 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::get('/rings/{ring}/edit', [RingController::class, 'edit'])-> name('rings.edit');
+Route::get('/rings/{ring}/edit', [RingController::class, 'edit'])->name('rings.edit');
+Route::put('/rings/{ring}', [RingController::class, 'update'])->name('rings.update');
+Route::delete('/rings/{ring}', [RingController::class, 'destroy'])->name('rings.destroy');
 
 
 //    rings.index es la forma de blade de escribir la ruta (rings/index) Laravel ya detecta que está en la ruta resources/views

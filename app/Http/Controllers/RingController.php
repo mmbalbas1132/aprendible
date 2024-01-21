@@ -6,6 +6,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\returnCallback;
 
 class RingController extends Controller
 {
@@ -78,14 +79,27 @@ class RingController extends Controller
      */
     public function update(Request $request, Ring $ring)
     {
-        //
-    }
+        $this->authorize('update', $ring);
 
+        $validated = $request->validate([
+            'mensaje' => ['required', 'min:3', 'max:255'],
+        ]);
+
+
+        $ring->update($validated);
+
+        return to_route('rings.index')
+            ->with('status', __('Ring updated successfully!'));
+    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Ring $ring)
     {
-        //
+        $this->authorize('delete', $ring);
+        $ring->delete();
+        return redirect()->route('rings.index')
+            ->with('status', __('Ring deleted successfully!'));
+
     }
 }
