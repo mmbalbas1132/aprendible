@@ -66,7 +66,11 @@ class RingController extends Controller
      */
     public function edit(Ring $ring)
     {
-        //
+        $this->authorize('update', $ring);
+
+        return view('rings.edit', [
+            'ring' => $ring,
+        ]);
     }
 
     /**

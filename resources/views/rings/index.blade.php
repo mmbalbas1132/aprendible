@@ -49,7 +49,7 @@
                             </div>
                             <p class="mt-4 text-lg text-gray-900 dark:text-gray-100">{{ $ring->mensaje }}</p>
                         </div>
-                        @can('update', $ring)
+{{--                        @can('update', $ring)--}}
                             <x-dropdown>
                                 <x-slot name="trigger">
                                     <button>
@@ -62,16 +62,16 @@
                                     <x-dropdown-link :href="route('rings.edit', $ring)">
                                         {{ __('Edit Ring') }}
                                     </x-dropdown-link>
-                                    <form method="POST" action="{{ route('rings.destroy', $ring) }}">
-                                        @csrf @method('DELETE')
-                                        <x-dropdown-link :href="route('rings.destroy', $ring)" onclick="event.preventDefault(); this.closest('form').submit();">
-                                            {{ __('Delete Ring') }}
-                                        </x-dropdown-link>
-                                    </form>
+{{--                                    <form method="POST" action="{{ route('rings.destroy', $ring) }}">--}}
+{{--                                        @csrf @method('DELETE')--}}
+{{--                                        <x-dropdown-link :href="route('rings.destroy', $ring)" onclick="event.preventDefault(); this.closest('form').submit();">--}}
+{{--                                            {{ __('Delete Ring') }}--}}
+{{--                                        </x-dropdown-link>--}}
+{{--                                    </form>--}}
 
                                 </x-slot>
                             </x-dropdown>
-                        @endcan
+{{--                        @endcan--}}
 
                     </div>
                 @endforeach

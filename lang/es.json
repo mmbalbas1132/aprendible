@@ -57,6 +57,7 @@
     "Duplicate: name": "Duplicar: nombre",
     "Edit": "Editar",
     "Edit :name": "Editar :name",
+    "Edit Ring": "Editar Ring",
     "Email": "Correo electrónico",
     "Email Password Reset Link": "Enviar enlace para restablecer contraseña",
     "Enable": "Habilitar",
@@ -236,6 +237,7 @@
     "You're logged in!": "Usted está conectado",
     "Your email address is unverified.": "Su dirección de correo electrónico no está verificada.",
     "of": "de",
+    "profile-updated": "Perfil actualizado correctamente",
     "results": "resultados",
     "to": "al"
 }
