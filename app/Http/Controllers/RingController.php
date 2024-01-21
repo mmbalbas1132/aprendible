@@ -59,7 +59,7 @@ class RingController extends Controller
      */
     public function show(Ring $ring)
     {
-        //
+        // fff
     }
 
     /**
