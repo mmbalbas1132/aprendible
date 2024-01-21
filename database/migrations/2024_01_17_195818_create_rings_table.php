@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('rings', function (Blueprint $table) {
             $table->id();
-            $table->string('mensaje', 300);
+            $table->string('mensaje', 300)->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
